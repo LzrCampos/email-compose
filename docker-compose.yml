@@ -4,6 +4,7 @@ volumes:
 networks: 
   banco:
   web:
+  fila:
 services:
   db1:
     image: postgres:9.6
