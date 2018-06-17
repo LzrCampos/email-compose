@@ -6,7 +6,7 @@ networks:
   web:
   fila:
 services:
-  db1:
+  db:
     image: postgres:9.6
     volumes:
       #Volume dos dados
@@ -40,8 +40,10 @@ services:
       - banco
       - web
       - fila
+    environment:
+      - DB_NAME=sendertest
     depends_on: 
-      - db1
+      - db
       - queue
   queue:
     image: redis:3.2
