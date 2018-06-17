@@ -44,13 +44,13 @@ services:
       - db1
       - queue
   queue:
-    image: redis:3.0
-    networks: 
+    image: redis:3.2
+    networks:
       - fila
   worker:
     build: worker
     volumes:
-      #Worker
+      # Worker
       - ./worker:/worker
     working_dir: /worker
     command: worker.py

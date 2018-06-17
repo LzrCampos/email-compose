@@ -3,11 +3,10 @@ import redis
 import json
 from bottle import Bottle, request
 
-
 class Sender(Bottle):
     def __init__(self):
         super().__init__()
-        self.route('/' method='POST', callback=self.send)
+        self.route('/', method='POST', callback=self.send)
         self.fila = redis.StrictRedis(host='queue', port=6379, db=0)
         DSN = 'dbname=email_sender user=postgres host=db1'
         self.conn = psycopg2.connect(DSN)
